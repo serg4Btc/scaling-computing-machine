@@ -1,0 +1,13 @@
+from PIL import Image, ImageSequence
+
+def generate_gif(frames, output_path, duration=200):
+    frames[0].save(output_path, save_all=True, append_images=frames[1:], optimize=False, duration=duration, loop=0)
+
+# Example usage
+frame1 = Image.open("frame1.png")
+frame2 = Image.open("frame2.png")
+frame3 = Image.open("frame3.png")
+
+frames = [frame1, frame2, frame3]
+output_path = "animated.gif"
+generate_gif(frames, output_path, duration=200)
